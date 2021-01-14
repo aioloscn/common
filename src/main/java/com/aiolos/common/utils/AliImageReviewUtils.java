@@ -12,6 +12,7 @@ import com.aliyuncs.http.MethodType;
 import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
+import org.apache.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -86,13 +87,13 @@ public class AliImageReviewUtils {
             int requestCode = scrResponse.getIntValue("code");
             //每一张图片的检测结果。
             JSONArray taskResults = scrResponse.getJSONArray("data");
-            if (200 == requestCode) {
+            if (HttpStatus.SC_OK == requestCode) {
                 for (Object taskResult : taskResults) {
                     //单张图片的处理结果。
                     int taskCode = ((JSONObject) taskResult).getIntValue("code");
                     //图片对应检测场景的处理结果。如果是多个场景，则会有每个场景的结果。
                     JSONArray sceneResults = ((JSONObject) taskResult).getJSONArray("results");
-                    if (200 == taskCode) {
+                    if (HttpStatus.SC_OK == taskCode) {
                         for (Object sceneResult : sceneResults) {
                             String scene = ((JSONObject) sceneResult).getString("scene");
                             String suggestion = ((JSONObject) sceneResult).getString("suggestion");
