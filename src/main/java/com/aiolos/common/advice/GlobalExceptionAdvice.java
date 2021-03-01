@@ -34,7 +34,7 @@ public class GlobalExceptionAdvice {
      * @return  返回封装好的公共web对象
      */
     @ExceptionHandler(value = Exception.class)
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
     public CommonResponse handlerCustomizeException(HttpServletRequest req, HttpServletResponse res, Exception e) {
 
@@ -46,7 +46,6 @@ public class GlobalExceptionAdvice {
             if (e instanceof NoHandlerFoundException) {
                 return CommonResponse.error(ErrorEnum.NO_HANDLER_FOUND);
             } else if (e instanceof MethodArgumentNotValidException) {
-
                 BindingResult bindingResult = ((MethodArgumentNotValidException) e).getBindingResult();
                 return CommonResponse.error(ErrorEnum.PARAMETER_VALIDATION_ERROR.getErrCode(), CommonUtils.processErrorString(bindingResult));
             } else if (e instanceof ServletRequestBindingException) {
