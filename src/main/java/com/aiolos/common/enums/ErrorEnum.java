@@ -46,6 +46,9 @@ public enum ErrorEnum implements CommonError {
     REGISTER_FAILED(20015, "注册失败"),
     USER_UPDATE_FAILED(20016, "用户信息更新失败，请联系管理员"),
     USER_INACTIVE_ERROR(20017, "请前往[账号设置]修改信息激活后再进行操作"),
+    OPENID_FAILED(20018, "临时登录凭证已过期"),
+    SUPER_ADMINISTRATOR_BINDING_ERROR(20019, "无法绑定超级管理员账号"),
+    TOKEN_IS_EXPIRED(20020, "令牌已过期"),
 
     // 业务相关错误类型
     INFORMATION_RELEASE_FAILED(30000, "短消息提交失败"),
