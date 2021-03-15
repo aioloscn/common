@@ -1,4 +1,4 @@
-package com.aiolos.common;
+package com.aiolos.common.response;
 
 import com.aiolos.common.enums.ErrorEnum;
 import org.apache.http.HttpStatus;
@@ -11,43 +11,32 @@ import java.io.Serializable;
  * @author Aiolos
  * @date 2020/9/22 1:11 下午
  */
-public class CommonResponse<T> implements Serializable {
-
-    /**
-     * 响应业务状态码
-     */
-    private Integer code;
-
-    /**
-     * 响应信息
-     */
-    private String msg;
-
-    /**
-     * 响应中的数据
-     */
-    private T data;
+public class CommonResponse<T> extends AbstractCommonResponse implements Serializable {
 
     private CommonResponse() {
-        this.code = HttpStatus.SC_OK;
-        this.msg = "SUCCESS";
+        super(8);
+        super.setCode(HttpStatus.SC_OK);
+        super.setMsg("SUCCESS");
     }
 
     private CommonResponse(String msg) {
-        this.code = HttpStatus.SC_OK;
-        this.msg = msg;
+        this();
+        super.setCode(HttpStatus.SC_OK);
+        super.setMsg(msg);
     }
 
     private CommonResponse(T data) {
-        this.code = HttpStatus.SC_OK;
-        this.msg = "SUCCESS";
-        this.data = data;
+        this();
+        super.setCode(HttpStatus.SC_OK);
+        super.setMsg("SUCCESS");
+        super.setData(data);
     }
 
     private CommonResponse(String msg, T data) {
-        this.code = HttpStatus.SC_OK;
-        this.msg = msg;
-        this.data = data;
+        this();
+        super.setCode(HttpStatus.SC_OK);
+        super.setMsg(msg);
+        super.setData(data);
     }
 
     public static CommonResponse ok() {
@@ -68,55 +57,37 @@ public class CommonResponse<T> implements Serializable {
 
     public static CommonResponse error(Integer errCode, String errMsg) {
         CommonResponse res = new CommonResponse();
-        res.code = errCode;
-        res.msg = errMsg;
+        res.setCode(errCode);
+        res.setMsg(errMsg);
         return res;
     }
 
     public static CommonResponse error(String errMsg, Object data) {
         CommonResponse res = new CommonResponse();
-        res.code = HttpStatus.SC_INTERNAL_SERVER_ERROR;
-        res.msg = errMsg;
-        res.data = data;
+        res.setCode(HttpStatus.SC_INTERNAL_SERVER_ERROR);
+        res.setMsg(errMsg);
+        res.setData(data);
         return res;
     }
 
     public static CommonResponse error(Integer errCode, String errMsg, Object data) {
         CommonResponse res = new CommonResponse();
-        res.code = errCode;
-        res.msg = errMsg;
-        res.data = data;
+        res.setCode(errCode);
+        res.setMsg(errMsg);
+        res.setData(data);
         return res;
     }
 
     public static CommonResponse error(ErrorEnum errorEnum) {
         CommonResponse res = new CommonResponse();
-        res.code = errorEnum.getErrCode();
-        res.msg = errorEnum.getErrMsg();
+        res.setCode(errorEnum.getErrCode());
+        res.setMsg(errorEnum.getErrMsg());
         return res;
     }
 
-    public Integer getCode() {
-        return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
+    @Override
+    public CommonResponse put(Object key, Object value) {
+        super.put(key, value);
+        return this;
     }
 }

@@ -1,6 +1,6 @@
 package com.aiolos.common.advice;
 
-import com.aiolos.common.CommonResponse;
+import com.aiolos.common.response.CommonResponse;
 import com.aiolos.common.exception.CustomizeException;
 import com.aiolos.common.enums.ErrorEnum;
 import com.aiolos.common.utils.CommonUtils;
