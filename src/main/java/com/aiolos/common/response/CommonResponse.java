@@ -1,9 +1,13 @@
 package com.aiolos.common.response;
 
 import com.aiolos.common.enums.ErrorEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.ToString;
 import org.apache.http.HttpStatus;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * 自定义响应数据结构
@@ -11,32 +15,51 @@ import java.io.Serializable;
  * @author Aiolos
  * @date 2020/9/22 1:11 下午
  */
+@Getter
+@ToString
 public class CommonResponse<T> extends AbstractCommonResponse implements Serializable {
 
+    /**
+     * 响应业务状态码
+     */
+    private Integer code = HttpStatus.SC_OK;;
+
+    /**
+     * 响应信息
+     */
+    private String msg = "SUCCESS";;
+
+    /**
+     * 响应中的数据
+     */
+    private T data;
+
+    private Map<Object, Object> map;
+
+    /**
+     * map初始容量
+     */
+    @JsonIgnore
+    private int capacity = 1 << 3;
+
     private CommonResponse() {
-        super(8);
-        super.setCode(HttpStatus.SC_OK);
-        super.setMsg("SUCCESS");
+        super.init(this.getCapacity());
     }
 
     private CommonResponse(String msg) {
-        this();
-        super.setCode(HttpStatus.SC_OK);
-        super.setMsg(msg);
+        super.init(this.getCapacity());
+        this.msg = msg;
     }
 
     private CommonResponse(T data) {
-        this();
-        super.setCode(HttpStatus.SC_OK);
-        super.setMsg("SUCCESS");
-        super.setData(data);
+        super.init(this.getCapacity());
+        this.data = data;
     }
 
     private CommonResponse(String msg, T data) {
-        this();
-        super.setCode(HttpStatus.SC_OK);
-        super.setMsg(msg);
-        super.setData(data);
+        super.init(this.getCapacity());
+        this.msg = msg;
+        this.data = data;
     }
 
     public static CommonResponse ok() {
@@ -86,8 +109,25 @@ public class CommonResponse<T> extends AbstractCommonResponse implements Seriali
     }
 
     @Override
-    public CommonResponse put(Object key, Object value) {
+    public synchronized CommonResponse put(Object key, Object value) {
         super.put(key, value);
+        this.map = super.getMap();
         return this;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 }
