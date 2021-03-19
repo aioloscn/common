@@ -10,11 +10,19 @@ public enum ArticleAppointType {
     TIMEING(1, "文章定时发布"),
     IMMEDIATELY(0, "文章立即发布");
 
-    public final Integer type;
-    public final String value;
+    private final Integer type;
+    private final String value;
 
     ArticleAppointType(Integer type, String value) {
         this.type = type;
         this.value = value;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public String getValue() {
+        return value;
     }
 }

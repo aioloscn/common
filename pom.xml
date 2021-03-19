@@ -100,8 +100,8 @@
         <!--hutool 测试雪花算法-->
         <dependency>
             <groupId>cn.hutool</groupId>
-            <artifactId>hutool-captcha</artifactId>
-            <version>5.2.0</version>
+            <artifactId>hutool-all</artifactId>
+            <version>5.4.0</version>
         </dependency>
 
         <!-- 第三方云厂商相关的依赖 -->

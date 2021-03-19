@@ -7,7 +7,7 @@ package com.aiolos.common.exception;
  * @author Aiolos
  * @date 2020/10/7 10:03 下午
  */
-public class CustomizeException extends RuntimeException implements CommonError {
+public class CustomizeException extends Exception implements CommonError {
 
     private final CommonError commonError;
 

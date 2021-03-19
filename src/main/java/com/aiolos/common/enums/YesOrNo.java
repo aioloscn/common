@@ -9,8 +9,16 @@ public enum YesOrNo {
     NO(0, "否"),
     YES(1, "是");
 
-    public final Integer type;
-    public final String value;
+    private final Integer type;
+    private final String value;
+
+    public Integer getType() {
+        return type;
+    }
+
+    public String getValue() {
+        return value;
+    }
 
     YesOrNo(Integer type, String value) {
         this.type = type;

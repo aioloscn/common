@@ -29,11 +29,13 @@ import javax.servlet.http.HttpServletResponse;
 public class GlobalExceptionAdvice {
 
     /**
-     * 定义ExceptionHandler解决为被controller层吸收的exception
-     * 只要对应的controller抛出了任何Exception或者继承自Exception的异常，都会做一个对应的处理
+     * 定义ExceptionHandler解决为被controller层吸收的Exception和它的子类异常
+     * 默认配置中，Spring事务框架只会将Runtime、unchecked异常的事务标记为回滚
+     * 但是如果捕获RuntimeException的异常，Spring校验会用DefaultHandlerExceptionResolver解析器，从而进不了该类
+     * 如果捕获Exception异常，Spring校验会用ExceptionHandlerExceptionResolver解析器
      * @return  返回封装好的公共web对象
      */
-    @ExceptionHandler(value = Exception.class)
+    @ExceptionHandler(value = CustomizeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
     public CommonResponse handlerCustomizeException(HttpServletRequest req, HttpServletResponse res, Exception e) {

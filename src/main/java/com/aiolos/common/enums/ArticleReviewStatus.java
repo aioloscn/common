@@ -20,8 +20,8 @@ public enum ArticleReviewStatus {
     FAILED(4, "审核未通过"),
     WITHDRAW(5, "文章撤回");
 
-    public final Integer type;
-    public final String value;
+    private final Integer type;
+    private final String value;
 
     ArticleReviewStatus(Integer type, String value) {
         this.type = type;
@@ -44,5 +44,13 @@ public enum ArticleReviewStatus {
             }
         }
         return false;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public String getValue() {
+        return value;
     }
 }

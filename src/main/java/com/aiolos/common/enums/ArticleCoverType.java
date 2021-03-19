@@ -9,11 +9,19 @@ public enum ArticleCoverType {
     ONE_IMAGE(1, "单图"),
     WORDS(2, "纯文字");
 
-    public final Integer type;
-    public final String value;
+    private final Integer type;
+    private final String value;
 
     ArticleCoverType(Integer type, String value) {
         this.type = type;
         this.value = value;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public String getValue() {
+        return value;
     }
 }

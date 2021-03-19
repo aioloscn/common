@@ -10,8 +10,16 @@ public enum Sex {
     man(1, "男"),
     secret(2, "保密");
 
-    public final Integer type;
-    public final String value;
+    private final Integer type;
+    private final String value;
+
+    public Integer getType() {
+        return type;
+    }
+
+    public String getValue() {
+        return value;
+    }
 
     Sex(Integer type, String value) {
         this.type = type;

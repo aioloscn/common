@@ -13,12 +13,12 @@ public enum UserStatus {
     //    2：已冻结。
 
 
-    INACTIVE(0, "未激活"),
+    INACTIVE(0, "未激活/已删除"),
     ACTIVE(1, "已激活"),
     FROZEN(2, "已冻结");
 
-    public final Integer type;
-    public final String value;
+    private final Integer type;
+    private final String value;
 
     UserStatus(Integer type, String value) {
         this.type = type;
@@ -39,4 +39,11 @@ public enum UserStatus {
         return false;
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }
