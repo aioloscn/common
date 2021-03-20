@@ -1,9 +1,14 @@
 package com.aiolos.common.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @author Aiolos
  * @date 2020/10/14 10:54 下午
  */
+@Getter
+@AllArgsConstructor
 public enum Sex {
 
     woman(0 ,"女"),
@@ -12,17 +17,4 @@ public enum Sex {
 
     private final Integer type;
     private final String value;
-
-    public Integer getType() {
-        return type;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    Sex(Integer type, String value) {
-        this.type = type;
-        this.value = value;
-    }
 }

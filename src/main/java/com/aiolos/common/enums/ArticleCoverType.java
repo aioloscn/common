@@ -1,9 +1,14 @@
 package com.aiolos.common.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @author Aiolos
  * @date 2020/11/26 6:32 上午
  */
+@Getter
+@AllArgsConstructor
 public enum ArticleCoverType {
 
     ONE_IMAGE(1, "单图"),
@@ -11,17 +16,4 @@ public enum ArticleCoverType {
 
     private final Integer type;
     private final String value;
-
-    ArticleCoverType(Integer type, String value) {
-        this.type = type;
-        this.value = value;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public String getValue() {
-        return value;
-    }
 }

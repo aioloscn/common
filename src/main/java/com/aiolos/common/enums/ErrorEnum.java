@@ -1,6 +1,8 @@
 package com.aiolos.common.enums;
 
 import com.aiolos.common.exception.CommonError;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
  *
@@ -8,6 +10,8 @@ import com.aiolos.common.exception.CommonError;
  * @author Aiolos
  * @date 2020/9/22 2:50 下午
  */
+@Getter
+@AllArgsConstructor
 public enum ErrorEnum implements CommonError {
 
     // 通用错误类型
@@ -50,7 +54,7 @@ public enum ErrorEnum implements CommonError {
     SUPER_ADMINISTRATOR_BINDING_ERROR(20019, "无法绑定超级管理员账号"),
     TOKEN_IS_EXPIRED(20020, "令牌已过期"),
 
-    // 业务相关错误类型
+    // 文章业务相关错误类型
     INFORMATION_RELEASE_FAILED(30000, "短消息提交失败"),
     INFORMATION_IMAGE_RELEASE_FAILED(30001, "短消息的图片提交失败"),
     IMAGE_DATA_EMPTY(30002, "上传图片数据为空"),
@@ -76,25 +80,15 @@ public enum ErrorEnum implements CommonError {
     ADMIN_PASSWORD_NULL_ERROR(40003, "密码不能为空"),
     ADMIN_PASSWORD_ERROR(40004, "密码为空或两次输入不一致"),
     ADMIN_INSERT_FAILED(40005, "添加管理员失败"),
-    ;
 
-    ErrorEnum(int errCode, String errMsg) {
-        this.errCode = errCode;
-        this.errMsg = errMsg;
-    }
+    // 图书业务相关错误类型
+    BOOK_DOES_NOT_EXIST(50001, "书籍不存在"),
+    ADD_TO_CART_FAILED(50002, "添加到购物车失败"),
+
+    ;
 
     private Integer errCode;
     private String errMsg;
-
-    @Override
-    public Integer getErrCode() {
-        return this.errCode;
-    }
-
-    @Override
-    public String getErrMsg() {
-        return this.errMsg;
-    }
 
     @Override
     public CommonError setErrMsg(String errMsg) {

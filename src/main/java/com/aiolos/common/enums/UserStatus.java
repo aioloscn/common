@@ -1,9 +1,14 @@
 package com.aiolos.common.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * @author Aiolos
  * @date 2020/10/14 10:56 下午
  */
+@Getter
+@AllArgsConstructor
 public enum UserStatus {
 
     //    用户状态：
@@ -20,11 +25,6 @@ public enum UserStatus {
     private final Integer type;
     private final String value;
 
-    UserStatus(Integer type, String value) {
-        this.type = type;
-        this.value = value;
-    }
-
     /**
      * 判断传入的用户状态是不是有效的值
      * @param tempStatus
@@ -37,13 +37,5 @@ public enum UserStatus {
             }
         }
         return false;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public String getValue() {
-        return value;
     }
 }
