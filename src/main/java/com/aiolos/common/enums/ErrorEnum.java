@@ -83,8 +83,12 @@ public enum ErrorEnum implements CommonError {
 
     // 图书业务相关错误类型
     BOOK_DOES_NOT_EXIST(50001, "书籍不存在"),
-    ADD_TO_CART_FAILED(50002, "添加到购物车失败"),
-
+    ADD_BOOK_FAILED(50002, "添加书籍失败"),
+    UPDATE_BOOK_FAILED(50003, "修改书籍失败"),
+    DELETE_BOOK_FAILED(50004, "删除书籍失败"),
+    ADD_TO_CART_FAILED(50005, "添加到购物车失败"),
+    UPDATE_CART_FAILED(50006, "购物车数据更新失败"),
+    ADD_ORDER_FAILED(50007, "保存订单失败"),
     ;
 
     private Integer errCode;
