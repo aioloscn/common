@@ -89,6 +89,8 @@ public enum ErrorEnum implements CommonError {
     ADD_TO_CART_FAILED(50005, "添加到购物车失败"),
     UPDATE_CART_FAILED(50006, "购物车数据更新失败"),
     ADD_ORDER_FAILED(50007, "保存订单失败"),
+    UPDATE_ORDER_FAILED(50008, "修改订单失败"),
+    DELETE_ORDER_FAILED(50009, "删除订单失败"),
     ;
 
     private Integer errCode;
