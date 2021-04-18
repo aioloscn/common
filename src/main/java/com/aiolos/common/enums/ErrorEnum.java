@@ -53,6 +53,7 @@ public enum ErrorEnum implements CommonError {
     OPENID_FAILED(20018, "临时登录凭证已过期"),
     SUPER_ADMINISTRATOR_BINDING_ERROR(20019, "无法绑定超级管理员账号"),
     TOKEN_IS_EXPIRED(20020, "令牌已过期"),
+    PERMISSION_DENIED(20021, "你不具备相关权限"),
 
     // 文章业务相关错误类型
     INFORMATION_RELEASE_FAILED(30000, "短消息提交失败"),
@@ -91,6 +92,7 @@ public enum ErrorEnum implements CommonError {
     ADD_ORDER_FAILED(50007, "保存订单失败"),
     UPDATE_ORDER_FAILED(50008, "修改订单失败"),
     DELETE_ORDER_FAILED(50009, "删除订单失败"),
+    RECEIPT_FAILED(50010, "确认收货失败"),
     ;
 
     private Integer errCode;
