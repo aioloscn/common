@@ -54,6 +54,11 @@ public enum ErrorEnum implements CommonError {
     SUPER_ADMINISTRATOR_BINDING_ERROR(20019, "无法绑定超级管理员账号"),
     TOKEN_IS_EXPIRED(20020, "令牌已过期"),
     PERMISSION_DENIED(20021, "你不具备相关权限"),
+    FACE_MODEL_DOES_NOT_EXIST(20022, "人脸模型不存在"),
+    FACIAL_RECOGNITION_SERVICE_IS_ABNORMAL(20023, "人脸识别服务异常"),
+    UNABLE_TO_IDENTIFY(20024, "无法识别出人脸"),
+    THERE_ARE_MORE_PEOPLE_IN_THE_PHOTO(20025, "照片中存在多张人脸"),
+    NOT_IN_PERSON(20026, "签到无效，非本人签到"),
 
     // 文章业务相关错误类型
     INFORMATION_RELEASE_FAILED(30000, "短消息提交失败"),
