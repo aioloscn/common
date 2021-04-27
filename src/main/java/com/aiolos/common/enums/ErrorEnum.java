@@ -98,6 +98,10 @@ public enum ErrorEnum implements CommonError {
     UPDATE_ORDER_FAILED(50008, "修改订单失败"),
     DELETE_ORDER_FAILED(50009, "删除订单失败"),
     RECEIPT_FAILED(50010, "确认收货失败"),
+
+    // 协同办公相关错误类型
+    FAILED_TO_OBTAIN_RISK_LEVEL(60001, "获取风险等级失败"),
+    CHECKIN_FAILED(60002, "签到失败")
     ;
 
     private Integer errCode;
