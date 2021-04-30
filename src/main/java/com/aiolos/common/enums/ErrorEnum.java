@@ -59,6 +59,7 @@ public enum ErrorEnum implements CommonError {
     UNABLE_TO_IDENTIFY(20024, "无法识别出人脸"),
     THERE_ARE_MORE_PEOPLE_IN_THE_PHOTO(20025, "照片中存在多张人脸"),
     NOT_IN_PERSON(20026, "签到无效，非本人签到"),
+    FAILED_TO_CREATE_FACE_MODEL(20027, "创建人脸模型失败"),
 
     // 文章业务相关错误类型
     INFORMATION_RELEASE_FAILED(30000, "短消息提交失败"),
@@ -79,6 +80,8 @@ public enum ErrorEnum implements CommonError {
     ARTICLE_CATEGORY_NOT_EXIST_ERROR(30015, "请选择正确的文章类型"),
     ARTICLE_CREATE_FAILED(30016, "发布文章失败.."),
     ARTICLE_QUERY_PARAMS_ERROR(30017, "查询差数有误"),
+    MUST_BE_IN_JPG_FORMAT(30018, "必须是JPG格式的图片"),
+    PICTURE_SAVE_FAILED(30019, "图片保存失败"),
 
     // 管理员相关类型错误
     ADMIN_NOT_EXIST_ERROR(40001, "管理员账号不存在或密码错误"),
