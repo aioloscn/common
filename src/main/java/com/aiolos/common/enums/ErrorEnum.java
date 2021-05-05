@@ -104,7 +104,8 @@ public enum ErrorEnum implements CommonError {
 
     // 协同办公相关错误类型
     FAILED_TO_OBTAIN_RISK_LEVEL(60001, "获取风险等级失败"),
-    CHECKIN_FAILED(60002, "签到失败")
+    CHECKIN_FAILED(60002, "签到失败"),
+    SIGNED_IN_TODAY(60003, "今天已经签到过了"),
     ;
 
     private Integer errCode;
