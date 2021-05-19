@@ -3,6 +3,7 @@ package com.aiolos.common.advice;
 import com.aiolos.common.enums.ErrorEnum;
 import com.aiolos.common.response.CommonResponse;
 import com.aiolos.common.utils.CommonUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -13,19 +14,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @author Aiolos
- * @date 2021/4/17 9:52 下午
+ * @date 2021/5/20 7:42 上午
  */
 @Order(Ordered.HIGHEST_PRECEDENCE)
+@Slf4j
 @RestControllerAdvice
 public class MethodArgumentNotValidExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public CommonResponse methodArgumentNotValidException(MethodArgumentNotValidException e) {
-        BindingResult bindingResult = e.getBindingResult();
+    public CommonResponse handlerException(HttpServletRequest req, HttpServletResponse resp, Exception e) {
+        log.warn("请求参数校验不合格：{}", e.getMessage());
+        BindingResult bindingResult = ((MethodArgumentNotValidException) e).getBindingResult();
         return CommonResponse.error(ErrorEnum.PARAMETER_VALIDATION_ERROR.getErrCode(), CommonUtils.processErrorString(bindingResult));
     }
 }
