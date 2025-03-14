@@ -1,6 +1,6 @@
 package com.aiolos.common.utils;
 
-import org.springframework.beans.BeanUtils;
+import cn.hutool.core.bean.BeanUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ public class ConvertBeanUtils {
             return null;
         }
         T t = newInstance(targetClass);
-        BeanUtils.copyProperties(source, t);
+        BeanUtil.copyProperties(source, t);
         return t;
     }
 

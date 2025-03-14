@@ -1,0 +1,2 @@
+# 声明式配置自动装配，实现springboot加载时将redis配置文件加载到spring容器中
+com.aiolos.common.web.config.RedisConfig
