@@ -8,6 +8,8 @@
   <modules>
     <module>common-utils</module>
     <module>common-web</module>
+    <module>common-exception</module>
+    <module>common-enums</module>
   </modules>
 
   <properties>
@@ -18,17 +20,25 @@
     <springdoc.version>2.0.4</springdoc.version>
     <lombok.version>1.18.26</lombok.version>
     <hutool.version>5.8.36</hutool.version>
+    <guava.version>33.4.0-jre</guava.version>
     <java.version>17</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <!-- 子模块版本号 -->
+    <common-exception.version>1.0-SNAPSHOT</common-exception.version>
     <common-utils.version>1.0-SNAPSHOT</common-utils.version>
     <common-web.version>1.0-SNAPSHOT</common-web.version>
+    <common-enums.version>1.0-SNAPSHOT</common-enums.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>com.aiolos</groupId>
+        <artifactId>common-exception</artifactId>
+        <version>${common-exception.version}</version>
+      </dependency>
       <dependency>
         <groupId>com.aiolos</groupId>
         <artifactId>common-utils</artifactId>
@@ -38,6 +48,11 @@
         <groupId>com.aiolos</groupId>
         <artifactId>common-web</artifactId>
         <version>${common-web.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aiolos</groupId>
+        <artifactId>common-enums</artifactId>
+        <version>${common-enums.version}</version>
       </dependency>
 
       <!-- 1. Spring Boot BOM -->
@@ -97,6 +112,12 @@
         <artifactId>hutool-core</artifactId>
         <version>${hutool.version}</version>
       </dependency>
+
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -113,6 +134,10 @@
     <dependency>
       <groupId>cn.hutool</groupId>
       <artifactId>hutool-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
     </dependency>
   </dependencies>
 
