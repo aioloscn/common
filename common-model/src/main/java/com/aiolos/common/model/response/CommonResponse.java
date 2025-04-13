@@ -1,4 +1,4 @@
-package com.aiolos.common.exception.response;
+package com.aiolos.common.model.response;
 
 import com.aiolos.common.enums.errors.ErrorEnum;
 import lombok.Data;
@@ -23,7 +23,7 @@ public class CommonResponse<T> implements Serializable {
     /**
      * 响应信息
      */
-    private String msg = "SUCCESS";;
+    private String msg = "SUCCESS";
 
     /**
      * 响应中的数据

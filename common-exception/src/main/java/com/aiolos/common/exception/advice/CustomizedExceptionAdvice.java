@@ -2,7 +2,7 @@ package com.aiolos.common.exception.advice;
 
 import com.aiolos.common.enums.errors.ErrorEnum;
 import com.aiolos.common.exception.errors.CustomizedException;
-import com.aiolos.common.exception.response.CommonResponse;
+import com.aiolos.common.model.response.CommonResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;

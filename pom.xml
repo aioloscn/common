@@ -10,6 +10,7 @@
     <module>common-web</module>
     <module>common-exception</module>
     <module>common-enums</module>
+    <module>common-model</module>
   </modules>
 
   <properties>
@@ -30,6 +31,7 @@
     <common-utils.version>1.0-SNAPSHOT</common-utils.version>
     <common-web.version>1.0-SNAPSHOT</common-web.version>
     <common-enums.version>1.0-SNAPSHOT</common-enums.version>
+    <common-model.version>1.0-SNAPSHOT</common-model.version>
   </properties>
 
   <dependencyManagement>
@@ -53,6 +55,11 @@
         <groupId>com.aiolos</groupId>
         <artifactId>common-enums</artifactId>
         <version>${common-enums.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aiolos</groupId>
+        <artifactId>common-model</artifactId>
+        <version>${common-model.version}</version>
       </dependency>
 
       <!-- 1. Spring Boot BOM -->

@@ -1,7 +1,7 @@
 package com.aiolos.common.exception.advice;
 
 import com.aiolos.common.exception.errors.TokenInvalidException;
-import com.aiolos.common.exception.response.CommonResponse;
+import com.aiolos.common.model.response.CommonResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
