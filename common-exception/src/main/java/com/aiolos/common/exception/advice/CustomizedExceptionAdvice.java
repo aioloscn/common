@@ -3,7 +3,8 @@ package com.aiolos.common.exception.advice;
 import com.aiolos.common.enums.errors.ErrorEnum;
 import com.aiolos.common.exception.errors.CustomizedException;
 import com.aiolos.common.model.response.CommonResponse;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -17,9 +18,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * @date 2020/10/10 4:14 下午
  */
 @Order(-9)  // 在线上环境throw new CustomizedException，throws Exception会被GlobalExceptionAdvice捕获，提高优先级
-@Slf4j
 @RestControllerAdvice
 public class CustomizedExceptionAdvice {
+
+    private static final Logger log = LoggerFactory.getLogger(CustomizedExceptionAdvice.class);
 
     /**
      * 定义ExceptionHandler解决为被controller层吸收的Exception和它的子类异常

@@ -1,8 +1,8 @@
 package com.aiolos.common.model.response;
 
+import cn.hutool.http.HttpStatus;
 import com.aiolos.common.enums.errors.ErrorEnum;
 import lombok.Data;
-import org.springframework.http.HttpStatus;
 
 import java.io.Serializable;
 
@@ -18,7 +18,7 @@ public class CommonResponse<T> implements Serializable {
     /**
      * 响应业务状态码
      */
-    private Integer code = HttpStatus.OK.value();
+    private Integer code = HttpStatus.HTTP_OK;
 
     /**
      * 响应信息
@@ -78,7 +78,7 @@ public class CommonResponse<T> implements Serializable {
     }
     
     public static CommonResponse error(String errMsg, Object data) {
-        return error(HttpStatus.INTERNAL_SERVER_ERROR.value(), errMsg, data);
+        return error(HttpStatus.HTTP_INTERNAL_ERROR, errMsg, data);
     }
 
     public static CommonResponse error(ErrorEnum errorEnum) {
