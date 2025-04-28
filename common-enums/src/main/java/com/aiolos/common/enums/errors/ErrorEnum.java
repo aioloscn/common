@@ -40,7 +40,8 @@ public enum ErrorEnum implements CommonError {
     SEND_SMS_FAILED(20004, "发送验证码出现异常"),
     PHONE_INCORRECT(20005, "请输入正确的手机号"),
     SMS_CODE_EXPIRED(20006, "验证码已过期"),
-    FILE_MAX_SIZE_ERROR(20007, "图片过大，仅支持上传2MB以下的图片"),
+    SMS_CODE_INCORRECT(20007, "验证码不正确"),
+    FILE_MAX_SIZE_ERROR(20008, "图片过大，仅支持上传2MB以下的图片"),
     ;
 
     private Integer errCode;

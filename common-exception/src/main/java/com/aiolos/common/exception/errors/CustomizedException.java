@@ -2,6 +2,9 @@ package com.aiolos.common.exception.errors;
 
 import com.aiolos.common.enums.errors.CommonError;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 /**
  * 自定义异常类
  * 由于 CustomizeException 继承自 Exception类，所以它是 checked 异常
@@ -9,9 +12,14 @@ import com.aiolos.common.enums.errors.CommonError;
  * @author Aiolos
  * @date 2020/10/7 10:03 下午
  */
-public class CustomizedException extends Exception implements CommonError {
+public class CustomizedException extends Exception implements CommonError, Serializable {
 
-    private final CommonError commonError;
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    private CommonError commonError;
+    
+    public CustomizedException() {}
 
     public CustomizedException(CommonError commonError) {
         super();
