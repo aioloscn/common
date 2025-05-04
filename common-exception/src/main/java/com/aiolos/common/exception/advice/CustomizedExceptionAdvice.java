@@ -38,6 +38,9 @@ public class CustomizedExceptionAdvice {
         if (e instanceof CustomizedException) {
             log.warn("自定义异常捕获，异常信息：{}", ((CustomizedException) e).getErrMsg());
             return CommonResponse.error(((CustomizedException) e).getErrCode(), ((CustomizedException) e).getErrMsg());
+        } else if (e.getCause() != null && e.getCause() instanceof CustomizedException) {
+            // @Transactional方法中未捕获异常被Spring动态代理重新抛出了UndeclaredThrowableException
+            return CommonResponse.error(((CustomizedException) e.getCause()).getErrCode(), ((CustomizedException) e.getCause()).getErrMsg());
         } else {
             return CommonResponse.error(ErrorEnum.UNKNOWN_ERROR);
         }

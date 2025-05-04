@@ -57,4 +57,9 @@ public class CustomizedException extends Exception implements CommonError, Seria
         this.commonError.setErrMsg(errMsg);
         return this;
     }
+    
+    @Override
+    public String getMessage() {
+        return this.commonError.getErrMsg();
+    }
 }

@@ -27,7 +27,7 @@ public class BaseExceptionAdvice {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
     public CommonResponse handlerException(HttpServletRequest req, Exception e) {
-        log.warn("全局异常捕获：{}", e.getMessage());
+        log.error("全局异常捕获：{}", e.getMessage(), e);
         if (e instanceof NoHandlerFoundException) {
             return CommonResponse.error(ErrorEnum.NO_HANDLER_FOUND);
         } else if (e instanceof ServletRequestBindingException) {

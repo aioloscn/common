@@ -17,7 +17,7 @@ public enum ErrorEnum implements CommonError {
     UNKNOWN_ERROR(10001, "未知错误"),
     BIND_EXCEPTION_ERROR(10002, "请求参数错误"),
     PARAMETER_VALIDATION_ERROR(10003, "请求参数校验失败"),
-    HYSTRIX_FALLBACK(10004, "服务宕机或地址错误"),
+    NO_PROVIDER_ERROR(10004, "下游服务异常"),
     ROUTING_FAILURE(10005, "请求路由失败"),
     NO_HANDLER_FOUND(10006, "找不到执行的路径"),
     NULL_POINT_ERROR(10007, "缺少相关数据"),
@@ -27,10 +27,10 @@ public enum ErrorEnum implements CommonError {
     REPEAT_SENDING_SMS_CODE(10011, "短信验证码60s内不能重复发送"),
     SYSTEM_OPERATION_ERROR(10012, "操作失败，请重试或联系管理员"),
     GLOBAL_FALLBACK_EXCEPTION(10013, "全局降级(服务提供者)：系统繁忙，请稍后再试"),
-    FEIGN_FALLBACK_EXCEPTION(10013, "服务降级(服务调用者)：系统繁忙，请稍后再试"),
-    SYSTEM_ZUUL_ERROR(10014, "请求过于频繁，请稍后再试"),
+    DUBBO_TIMEOUT_EXCEPTION(10013, "下游服务超时，请稍后再试"),
+    SYSTEM_GATEWAY_ERROR(10014, "请求过于频繁，请稍后再试"),
     SYSTEM_DATE_PARSER_ERROR(10015, "系统日期转换错误"),
-    ZUUL_FORWARDING_ERROR(10016, "服务器繁忙，请稍后再试"),
+    DUBBO_FORWARDING_ERROR(10016, "服务器繁忙，请稍后再试"),
 
     // 用户服务相关错误类型
     USER_NOT_LOGGED_IN(20000, "用户尚未登录"),
