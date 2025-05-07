@@ -17,12 +17,12 @@
     <spring-boot.version>3.0.4</spring-boot.version>
     <spring-cloud.version>2022.0.0</spring-cloud.version>
     <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
-    <dubbo.version>3.2.4</dubbo.version>
+    <dubbo.version>3.2.17</dubbo.version>
     <lombok.version>1.18.26</lombok.version>
     <hutool.version>5.8.36</hutool.version>
     <guava.version>33.4.0-jre</guava.version>
     <commons-lang3.version>3.17.0</commons-lang3.version>
-    <fastjson2.version>2.0.57</fastjson2.version>
+    <fastjson2.version>2.0.58-SNAPSHOT</fastjson2.version>
     <jakarta.servlet.version>6.0.0</jakarta.servlet.version>
     <slf4j.version>2.0.16</slf4j.version>
     <swagger.version>2.2.20</swagger.version>
@@ -188,6 +188,17 @@
       <artifactId>swagger-annotations</artifactId>
     </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <!-- 拉取fastjson2快照版本 -->
+      <id>sonatype-snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 
   <!-- 插件管理 -->
   <build>

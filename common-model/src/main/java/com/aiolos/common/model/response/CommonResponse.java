@@ -23,14 +23,16 @@ public class CommonResponse<T> implements Serializable {
     /**
      * 响应信息
      */
-    private String msg = "SUCCESS";
+    private String msg;
+    
+    private Boolean success = true;
 
     /**
      * 响应中的数据
      */
     private T data;
 
-    private CommonResponse() {
+    public CommonResponse() {
     }
 
     private CommonResponse(String msg) {
@@ -46,42 +48,43 @@ public class CommonResponse<T> implements Serializable {
         this.data = data;
     }
 
-    public static CommonResponse ok() {
-        return new CommonResponse();
+    public static <T> CommonResponse<T> ok() {
+        return new CommonResponse<>();
     }
 
-    public static CommonResponse ok(String msg) {
-        return new CommonResponse(msg);
+    public static <T> CommonResponse<T> ok(String msg) {
+        return new CommonResponse<>(msg);
     }
 
-    public static CommonResponse ok(Object data) {
-        return new CommonResponse(data);
+    public static <T> CommonResponse<T> ok(T data) {
+        return new CommonResponse<>(data);
     }
 
-    public static CommonResponse ok(String msg, Object data) {
-        return new CommonResponse(msg, data);
+    public static <T> CommonResponse<T> ok(String msg, T data) {
+        return new CommonResponse<>(msg, data);
     }
     
-    public static CommonResponse error(Integer errCode, String errMsg, Object data) {
+    public static <T> CommonResponse<T> error(Integer errCode, String errMsg, T data) {
         if (errCode == null) {
             throw new IllegalArgumentException("Error code cannot be null");
         }
-        CommonResponse res = new CommonResponse();
+        CommonResponse<T> res = new CommonResponse<>();
+        res.setSuccess(false);
         res.setCode(errCode);
         res.setMsg(errMsg);
         res.setData(data);
         return res;
     }
     
-    public static CommonResponse error(Integer errCode, String errMsg) {
+    public static <T> CommonResponse<T> error(Integer errCode, String errMsg) {
         return error(errCode, errMsg, null);
     }
     
-    public static CommonResponse error(String errMsg, Object data) {
+    public static <T> CommonResponse<T> error(String errMsg, T data) {
         return error(HttpStatus.HTTP_INTERNAL_ERROR, errMsg, data);
     }
 
-    public static CommonResponse error(ErrorEnum errorEnum) {
+    public static <T> CommonResponse<T> error(ErrorEnum errorEnum) {
         return error(errorEnum.getErrCode(), errorEnum.getErrMsg(), null);
     }
 }
