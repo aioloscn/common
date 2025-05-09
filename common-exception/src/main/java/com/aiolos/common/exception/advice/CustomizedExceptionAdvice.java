@@ -31,7 +31,7 @@ public class CustomizedExceptionAdvice {
      * @return  返回封装好的公共web对象
      */
     @ExceptionHandler(value = CustomizedException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public CommonResponse handlerCustomizeException(Exception e) {
 
