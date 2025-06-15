@@ -2,6 +2,8 @@ package com.aiolos.common.web.servlet;
 
 import com.aiolos.common.enums.GatewayHeaderEnum;
 import com.aiolos.common.model.ContextInfo;
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
@@ -17,6 +19,12 @@ public class ContextInterceptor implements HandlerInterceptor {
             return true;
         }
         ContextInfo.setUserId(Long.valueOf(userIdStr));
+        String userJson = request.getHeader(GatewayHeaderEnum.USER_INFO_JSON.getHeaderName());
+        if (StringUtils.isNotBlank(userJson)) {
+            JSONObject userJsonObj = JSON.parseObject(userJson);
+            ContextInfo.setNickName((String) userJsonObj.get("nickname"));
+            ContextInfo.setAvatar((String) userJsonObj.get("avatar"));
+        }
         return true;
     }
 

@@ -11,9 +11,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum BoolEnum {
 
-    NO(0, "否"),
-    YES(1, "是");
+    NO(0, false, "否"),
+    YES(1, true, "是");
 
-    private final Integer type;
-    private final String value;
+    private final Integer code;
+    private final Boolean value;
+    private final String desc;
 }
