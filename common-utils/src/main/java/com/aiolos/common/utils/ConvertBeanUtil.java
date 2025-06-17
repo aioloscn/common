@@ -1,41 +1,47 @@
 package com.aiolos.common.utils;
 
-import cn.hutool.core.bean.BeanUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class ConvertBeanUtil {
 
+    private static final ObjectMapper objectMapper = new ObjectMapper()
+            .registerModule(new JavaTimeModule())
+            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
     /**
      * 将一个对象转换为另一个对象
      * @param source
-     * @param supplier
+     * @param targetClass
      * @return
      * @param <T>
      */
-    public static <T> T convert(Object source, Supplier<T> supplier) {
-        if (source == null || supplier == null) {
+    public static <T> T convert(Object source, Class<T> targetClass) {
+        if (source == null || targetClass == null) {
             return null;
         }
-        T t = supplier.get();
-        if (t != null) {
-            BeanUtil.copyProperties(source, t);
-        }
-        return t;
+        return objectMapper.convertValue(source, targetClass);
     }
 
-    public static <S, T> List<T> convertList(List<S> source, Supplier<T> supplier) {
-        if (source == null || supplier == null) {
+    /**
+     * 将List集合转成另一个对象集合，支持 redis的LinkedHashMap
+     * @param source
+     * @param targetClass
+     * @return
+     * @param <S>
+     * @param <T>
+     */
+    public static <S, T> List<T> convertList(List<S> source, Class<T> targetClass) {
+        if (source == null || targetClass == null) {
             return new ArrayList<>();
         }
-        return source.stream().map(s -> {
-                    T t = supplier.get();
-                    BeanUtil.copyProperties(s, t);
-                    return t;
-                })
+        return source.stream()
+                .map(item -> objectMapper.convertValue(item, targetClass))
                 .collect(Collectors.toList());
     }
 }
