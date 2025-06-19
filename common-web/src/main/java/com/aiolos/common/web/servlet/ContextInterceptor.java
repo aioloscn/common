@@ -10,7 +10,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
 public class ContextInterceptor implements HandlerInterceptor {
+    
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String userIdStr = request.getHeader(GatewayHeaderEnum.USER_LOGIN_ID.getHeaderName());
@@ -21,8 +25,10 @@ public class ContextInterceptor implements HandlerInterceptor {
         ContextInfo.setUserId(Long.valueOf(userIdStr));
         String userJson = request.getHeader(GatewayHeaderEnum.USER_INFO_JSON.getHeaderName());
         if (StringUtils.isNotBlank(userJson)) {
-            JSONObject userJsonObj = JSON.parseObject(userJson);
-            ContextInfo.setNickName((String) userJsonObj.get("nickname"));
+
+            byte[] decodeBytes = Base64.getDecoder().decode(userJson);
+            JSONObject userJsonObj = JSON.parseObject(new String(decodeBytes, StandardCharsets.UTF_8));
+            ContextInfo.setNickName((String) userJsonObj.get("nickName"));
             ContextInfo.setAvatar((String) userJsonObj.get("avatar"));
         }
         return true;
