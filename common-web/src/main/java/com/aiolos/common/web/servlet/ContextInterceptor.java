@@ -22,14 +22,19 @@ public class ContextInterceptor implements HandlerInterceptor {
         if (StringUtils.isBlank(userIdStr)) {
             return true;
         }
-        ContextInfo.setUserId(Long.valueOf(userIdStr));
-        String userJson = request.getHeader(GatewayHeaderEnum.USER_INFO_JSON.getHeaderName());
-        if (StringUtils.isNotBlank(userJson)) {
+        boolean isAnonymous = "true".equals(request.getHeader(GatewayHeaderEnum.IS_ANONYMOUS.getHeaderName()));
+        ContextInfo.setUserId(Long.parseLong(userIdStr));
+        ContextInfo.setAnonymous(isAnonymous);
 
-            byte[] decodeBytes = Base64.getDecoder().decode(userJson);
-            JSONObject userJsonObj = JSON.parseObject(new String(decodeBytes, StandardCharsets.UTF_8));
-            ContextInfo.setNickName((String) userJsonObj.get("nickName"));
-            ContextInfo.setAvatar((String) userJsonObj.get("avatar"));
+        if (!isAnonymous) {
+            String userJson = request.getHeader(GatewayHeaderEnum.USER_INFO_JSON.getHeaderName());
+            if (StringUtils.isNotBlank(userJson)) {
+
+                byte[] decodeBytes = Base64.getDecoder().decode(userJson);
+                JSONObject userJsonObj = JSON.parseObject(new String(decodeBytes, StandardCharsets.UTF_8));
+                ContextInfo.setNickName((String) userJsonObj.get("nickName"));
+                ContextInfo.setAvatar((String) userJsonObj.get("avatar"));
+            }
         }
         return true;
     }

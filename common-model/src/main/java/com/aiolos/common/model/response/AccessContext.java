@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class AccessContext implements Serializable {
     
     private Long userId;
+    private boolean isAnonymous;
     private String nickName;
     private String avatar;
 }

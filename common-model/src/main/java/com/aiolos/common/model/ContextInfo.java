@@ -22,6 +22,20 @@ public class ContextInfo {
         return context.get().getUserId();
     }
     
+    public static void setAnonymous(Boolean isAnonymous) {
+        if (context.get() == null) {
+            context.set(new AccessContext());
+        }
+        context.get().setAnonymous(isAnonymous);
+    }
+    
+    public static boolean isAnonymous() {
+        if (context.get() == null) {
+            return false;
+        }
+        return context.get().isAnonymous();
+    }
+    
     public static void setNickName(String nickName) {
         if (StringUtils.isBlank(nickName)) return;
         if (context.get() == null) {
