@@ -1,6 +1,6 @@
 package com.aiolos.common.exception.advice;
 
-import com.aiolos.common.enums.errors.ErrorEnum;
+import com.aiolos.common.enums.error.ErrorEnum;
 import com.aiolos.common.model.response.CommonResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;

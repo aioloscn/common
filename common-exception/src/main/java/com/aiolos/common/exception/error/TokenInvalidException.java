@@ -1,6 +1,6 @@
-package com.aiolos.common.exception.errors;
+package com.aiolos.common.exception.error;
 
-import com.aiolos.common.enums.errors.CommonError;
+import com.aiolos.common.enums.error.CommonError;
 
 /**
  * @author Aiolos

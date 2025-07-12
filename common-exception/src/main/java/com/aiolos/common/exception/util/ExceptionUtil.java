@@ -1,7 +1,7 @@
-package com.aiolos.common.exception.utils;
+package com.aiolos.common.exception.util;
 
-import com.aiolos.common.enums.errors.CommonError;
-import com.aiolos.common.exception.errors.CustomizedException;
+import com.aiolos.common.enums.error.CommonError;
+import com.aiolos.common.exception.error.CustomizedException;
 
 public class ExceptionUtil {
 

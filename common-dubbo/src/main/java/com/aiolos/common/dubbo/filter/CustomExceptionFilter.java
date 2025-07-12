@@ -1,6 +1,6 @@
 package com.aiolos.common.dubbo.filter;
 
-import com.aiolos.common.exception.errors.CustomizedException;
+import com.aiolos.common.exception.error.CustomizedException;
 import org.apache.dubbo.common.logger.ErrorTypeAwareLogger;
 import org.apache.dubbo.common.logger.LoggerFactory;
 import org.apache.dubbo.common.utils.ReflectUtils;

@@ -1,4 +1,4 @@
-package com.aiolos.common.enums.errors;
+package com.aiolos.common.enums.error;
 
 import com.aiolos.common.enums.base.BaseEnum;
 

@@ -29,7 +29,8 @@ public class CorsConfig {
         config.setAllowedOriginPatterns(Lists.newArrayList(
                 "http://127.0.0.1:*",
                 "http://localhost:*",
-                "http://*.aiolos.com"
+                "http://*.aiolos.com",
+                "https://*.volleyshot.com"
         ));
         // 设置允许请求的方式
         config.addAllowedMethod("*");

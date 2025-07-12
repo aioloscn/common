@@ -1,7 +1,7 @@
 package com.aiolos.common.exception.advice;
 
-import com.aiolos.common.enums.errors.ErrorEnum;
-import com.aiolos.common.exception.errors.CustomizedException;
+import com.aiolos.common.enums.error.ErrorEnum;
+import com.aiolos.common.exception.error.CustomizedException;
 import com.aiolos.common.model.response.CommonResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

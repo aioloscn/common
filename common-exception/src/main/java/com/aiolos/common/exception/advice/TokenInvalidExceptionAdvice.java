@@ -1,6 +1,6 @@
 package com.aiolos.common.exception.advice;
 
-import com.aiolos.common.exception.errors.TokenInvalidException;
+import com.aiolos.common.exception.error.TokenInvalidException;
 import com.aiolos.common.model.response.CommonResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

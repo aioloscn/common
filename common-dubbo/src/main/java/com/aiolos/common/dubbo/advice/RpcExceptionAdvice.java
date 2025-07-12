@@ -1,6 +1,6 @@
 package com.aiolos.common.dubbo.advice;
 
-import com.aiolos.common.enums.errors.ErrorEnum;
+import com.aiolos.common.enums.error.ErrorEnum;
 import com.aiolos.common.model.response.CommonResponse;
 import org.apache.dubbo.rpc.RpcException;
 import org.slf4j.Logger;

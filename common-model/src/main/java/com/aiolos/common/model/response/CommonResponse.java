@@ -1,7 +1,7 @@
 package com.aiolos.common.model.response;
 
 import cn.hutool.http.HttpStatus;
-import com.aiolos.common.enums.errors.ErrorEnum;
+import com.aiolos.common.enums.error.ErrorEnum;
 import lombok.Data;
 
 import java.io.Serializable;
