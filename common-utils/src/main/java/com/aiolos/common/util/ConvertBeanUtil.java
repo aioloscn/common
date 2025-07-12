@@ -1,4 +1,4 @@
-package com.aiolos.common.utils;
+package com.aiolos.common.util;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

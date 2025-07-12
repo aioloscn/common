@@ -11,6 +11,8 @@
     <module>common-exception</module>
     <module>common-enums</module>
     <module>common-model</module>
+    <module>common-dubbo</module>
+    <module>common-redis</module>
   </modules>
 
   <properties>
@@ -31,6 +33,7 @@
     <java.version>17</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <mybatis-plus.version>3.5.5</mybatis-plus.version>
 
     <!-- 子模块版本号 -->
     <common-exception.version>1.0-SNAPSHOT</common-exception.version>
@@ -38,6 +41,8 @@
     <common-web.version>1.0-SNAPSHOT</common-web.version>
     <common-enums.version>1.0-SNAPSHOT</common-enums.version>
     <common-model.version>1.0-SNAPSHOT</common-model.version>
+    <common-dubbo.version>1.0-SNAPSHOT</common-dubbo.version>
+    <common-redis.version>1.0-SNAPSHOT</common-redis.version>
   </properties>
 
   <dependencyManagement>
@@ -66,6 +71,16 @@
         <groupId>com.aiolos</groupId>
         <artifactId>common-model</artifactId>
         <version>${common-model.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aiolos</groupId>
+        <artifactId>common-dubbo</artifactId>
+        <version>${common-dubbo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aiolos</groupId>
+        <artifactId>common-redis</artifactId>
+        <version>${common-redis.version}</version>
       </dependency>
 
       <!-- 1. Spring Boot BOM -->

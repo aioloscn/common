@@ -1,4 +1,4 @@
-package com.aiolos.common.web.utils;
+package com.aiolos.common.util;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.validation.BindingResult;

@@ -1,4 +1,4 @@
 # 声明式配置自动装配，实现springboot加载时将redis配置文件加载到spring容器中
 com.aiolos.common.web.config.RedisConfig
-# 虽然配置类添加了 @Configuration 注解但配置类不位于主启动类所在包或其子包下就需要写入全限定名
+# 虽然配置类添加了 @Configuration 注解但配置类不位于主启动类所在包或其子包下就需要写入全限定名，启动类加了@ComponentScan("com.aiolos")就不用这个配置了
 com.aiolos.common.web.config.WebMvcConfig
